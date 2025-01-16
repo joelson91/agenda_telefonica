@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% block title %}Editar contato{% endblock %}
+{% block page %}Editar contato{% endblock %}
+
+{% block content %}
+<form method="POST">
+    {{ form.hidden_tag() }}
+    {{ form.nome.label }}
+    {{ form.nome(size=32, value=contato.nome) }}
+    <br>
+    {{ form.telefone.label }}
+    {{ form.telefone(size=32, value=contato.telefone) }}
+    <br>
+    {{ form.email.label }}
+    {{ form.email(size=32, value=contato.email) }}
+    <br>
+    {{ form.btn_submit() }}
+</form>
+{% endblock %}

@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% block content %}
+<table border="1">
+    <thead>
+        <tr>
+            <th>Nome</th>
+            <th>Telefone</th>
+            <th>email</th>
+            <th>Ação</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for contato in contatos %}
+        <tr>
+            <td>{{ contato.nome }}</td>
+            <td>{{ contato.telefone }}</td>
+            <td>{{ contato.email }}</td>
+            <td>
+                <a href="{{ url_for('update_user', id=contato.id) }}">Editar</a>
+                <a href="{{ url_for('delete_user', id=contato.id) }}">Excluir</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}
