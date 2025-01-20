@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% block content %}
+<table class="striped highlight">
+    <thead>
+        <tr>
+            <th>Nome</th>
+            <th class="hide-on-small-only">Telefone</th>
+            <th class="hide-on-small-only" colspan="2">email</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for contato in contatos %}
+        <tr>
+            <td class="truncate">{{ contato.nome }}</td>
+            <td class="hide-on-small-only">{{ contato.telefone }}</td>
+            <td class="hide-on-small-only">{{ contato.email }}</td>
+            <td class="right-align">
+                <a class="waves-effect waves-light btn-small" href="{{ url_for('update_user', id=contato.id) }}"><i
+                        class="material-icons">edit</i></a>
+                <a class="waves-effect waves-light btn-small" href="{{ url_for('delete_user', id=contato.id) }}"><i
+                        class="material-icons">delete</i></a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% include 'components/f_button.html' %}
+{% endblock %}

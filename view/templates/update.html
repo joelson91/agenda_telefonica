@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% block title %}Editar contato{% endblock %}
+{% block page %}Editar contato{% endblock %}
+
+{% block content %}
+<form method="POST" class="col s12">
+    {{ form.hidden_tag() }}
+
+    <div class="input-field col s12">
+        <i class="material-icons prefix">account_circle</i>
+        {{ form.nome.label }}
+        {{ form.nome(size=32, value=contato.nome, class="validate") }}
+    </div>
+
+
+    <div class="input-field col s12">
+        <i class="material-icons prefix">phone</i>
+        {{ form.telefone.label }}
+        {{ form.telefone(size=32, value=contato.telefone, class="validate") }}
+    </div>
+
+
+    <div class="input-field col s12">
+        <i class="material-icons prefix">email</i>
+        {{ form.email.label }}
+        {{ form.email(size=32, value=contato.email, class="validate") }}
+    </div>
+
+    <button type="submit" class="btn waves-effect waves-light">Salvar<i class="material-icons right">send</i></button>
+</form>
+{% endblock %}

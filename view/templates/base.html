@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css' ) }}">
+    <title>{% block title %}Contatos{% endblock %}</title>
+</head>
+
+<body>
+
+    <header>
+        <div class="navbar-fixed">
+            <nav class="grey darken-4">
+                <div class="nav-wrapper container">
+                    <a href="{{ url_for('index') }}" class="brand-logo">Numi</a>
+                    <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+                    <ul class="right hide-on-med-and-down">
+                        <li><a href="{{ url_for('index') }}">Sobre</a></li>
+                        <li><a href="{{ url_for('index') }}">Logout</a></li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+
+        <ul class="sidenav" id="mobile-demo">
+            <li><a href="{{ url_for('index') }}"><i class="material-icons">home</i>Início</a></li>
+            <li><a href="{{ url_for('index') }}"><i class="material-icons">logout</i>Logout</a></li>
+        </ul>
+    </header>
+
+    <main class="container">
+        <div class="row valign-wrapper" style="height: 200px;">
+            <div class="col s6 valign">
+                <h2>{% block page %}Contatos{% endblock %}</h2>
+            </div>
+            <div class="col s6 right-align valign">
+                <a href="{{ url_for('add_user') }}" class="btn hide-on-small-only" id="btn_add">Adicionar Contato</a>
+            </div>
+        </div>
+
+        {% block content %}
+        {% endblock %}
+    </main>
+
+    <div id="space"></div>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.slim.min.js"
+        integrity="sha256-kmHvs0B+OpCW5GVHUNjv9rOmY0IvSIRcf7zGUDTDQM8=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="{{ url_for('static', filename='js/script.js' ) }}"></script>
+</body>
+
+</html>
