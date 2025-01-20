@@ -1,6 +1,6 @@
 from flask import render_template, request, redirect, url_for
 from models.user import Contato, db
-from form import UserForm
+from forms.form import UserForm
 
 
 class UserController:
